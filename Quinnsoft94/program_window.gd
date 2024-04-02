@@ -51,6 +51,7 @@ func minimize():
 
 func close():
 	closed.emit()
+	Data.save()
 	queue_free()
 
 

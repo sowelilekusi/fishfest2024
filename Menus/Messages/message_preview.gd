@@ -6,8 +6,11 @@ signal open_message()
 @export var fish_name_label: Label
 @export var message_label: Label
 
+var fish: FishProfile
+
 
 func setup(profile: FishProfile, message: String):
+	fish = profile
 	pfp.texture = profile.picture
 	fish_name_label.text = profile.fish_name
 	message_label.text = message

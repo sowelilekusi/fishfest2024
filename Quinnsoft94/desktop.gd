@@ -7,6 +7,8 @@ class_name Desktop extends ColorRect
 @export var pof_icon: Texture
 @export var pof_scene: PackedScene
 
+@export var start_menu: PanelContainer
+
 var window_scene = preload("res://Quinnsoft94/program_window.tscn")
 
 
@@ -29,7 +31,6 @@ func spawn_program(program_scene, icon):
 	var window = window_scene.instantiate() as DEWindow
 	window_holder.add_child(window)
 	var program = program_scene.instantiate() as Application
-	program.save_file = SaveFile.load_profile_from_disk()
 	add_child(program)
 	window.set_program(program)
 	var button = Button.new()
@@ -44,3 +45,22 @@ func _ready() -> void:
 	add_desktop_icon(pof_icon, "Plentiful Fish", spawn_program.bind(pof_scene, pof_icon))
 	#add_desktop_icon(uno_icon, "Uno", spawn_program.bind(uno_scene, uno_icon))
 	#add_desktop_icon(snakes_and_ladders_icon, "Snakes and Ladders", spawn_program.bind(snakes_and_ladders_scene, snakes_and_ladders_icon))
+
+
+func _on_start_button_pressed() -> void:
+	start_menu.visible = !start_menu.visible
+
+
+func _on_save_button_pressed() -> void:
+	Data.save()
+	start_menu.visible = false
+
+
+func _on_reset_save_button_pressed() -> void:
+	Data.reset_fish()
+	start_menu.visible = false
+
+
+func _on_quit_button_pressed() -> void:
+	Data.save()
+	get_tree().quit()

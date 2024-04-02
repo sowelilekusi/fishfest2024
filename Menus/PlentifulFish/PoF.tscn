@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://wa62w2wb4pmr"]
+[gd_scene load_steps=21 format=3 uid="uid://wa62w2wb4pmr"]
 
 [ext_resource type="Script" path="res://Menus/PlentifulFish/application.gd" id="1_yl22y"]
 [ext_resource type="PackedScene" uid="uid://dge7ymn0yd7ry" path="res://Menus/Swipe/fish_card.tscn" id="2_uajjj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://co03mjgi5q1xh" path="res://Fish/Goldfish/goldfish.tres" id="5_g7gvi"]
 [ext_resource type="Resource" uid="uid://dun2uls53mmbq" path="res://Fish/Fishball/fishball.tres" id="6_6w8p5"]
 [ext_resource type="Texture2D" uid="uid://06lxb843ndgp" path="res://Assets/ocean_bg.png" id="7_o2jv7"]
+[ext_resource type="Texture2D" uid="uid://dbvhhwhqxo8ee" path="res://Assets/please_wait.png" id="7_uxgnr"]
 [ext_resource type="Texture2D" uid="uid://co5knl5f3lui3" path="res://Assets/catfish.png" id="8_7dnbn"]
 [ext_resource type="StyleBox" uid="uid://bhwii0745mi6s" path="res://Assets/darkpanel.tres" id="9_d6aw3"]
 [ext_resource type="Texture2D" uid="uid://csowwaiokaooa" path="res://Assets/fish_icon.png" id="10_jb5xi"]
@@ -19,10 +20,15 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th770"]
 bg_color = Color(0.768627, 0.533333, 0.458824, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17s8b"]
+texture = ExtResource("7_uxgnr")
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pap58"]
+texture = ExtResource("7_uxgnr")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7vhj"]
 bg_color = Color(0.611765, 0.392157, 0.321569, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hehe3"]
 
 [node name="PoF" type="PanelContainer" node_paths=PackedStringArray("player_name_text", "contents_page")]
 custom_minimum_size = Vector2(600, 680)
@@ -40,6 +46,8 @@ fish_card_scene = ExtResource("2_uajjj")
 messages_scene = ExtResource("3_42fn6")
 fish_profiles = Array[Resource("res://Resources/fish_profile.gd")]([ExtResource("4_tkrdy"), ExtResource("5_g7gvi"), ExtResource("6_6w8p5")])
 contents_page = NodePath("VBoxContainer/Content")
+empty_panel = SubResource("StyleBoxTexture_17s8b")
+wait_panel = SubResource("StyleBoxTexture_pap58")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -75,9 +83,9 @@ text = "cool name"
 vertical_alignment = 1
 
 [node name="Content" type="PanelContainer" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_hehe3")
 
 [node name="Footer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2

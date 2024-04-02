@@ -2,9 +2,10 @@ class_name MessageMenu extends ScrollContainer
 
 @export var message_preview_scene: PackedScene
 @export var vbox: VBoxContainer
-var save: SaveFile
 
 
 func _ready() -> void:
-	var message = message_preview_scene.instantiate() as MessagePreview
-	vbox.add_child(message)
+	for profile: FishProfile in Data.save_file.accepted_fish:
+		var message = message_preview_scene.instantiate() as MessagePreview
+		message.setup(profile, "send a first message to " + str(profile.fish_name) + "!")
+		vbox.add_child(message)

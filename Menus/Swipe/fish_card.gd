@@ -19,6 +19,7 @@ func _on_no_pressed() -> void:
 	tween.set_trans(Tween.TRANS_CUBIC)
 	var dest: Vector2 = position + Vector2(-600, 0)
 	tween.tween_property(self, "position", dest, 0.6)
+	tween.tween_callback(set_visible.bind(false))
 	tween.tween_callback(func(): swiped.emit(false))
 	tween.tween_callback(queue_free)
 
@@ -29,5 +30,6 @@ func _on_yes_pressed() -> void:
 	tween.set_trans(Tween.TRANS_CUBIC)
 	var dest: Vector2 = position + Vector2(600, 0)
 	tween.tween_property(self, "position", dest, 0.6)
+	tween.tween_callback(set_visible.bind(false))
 	tween.tween_callback(func(): swiped.emit(true))
 	tween.tween_callback(queue_free)
