@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Fishjam"
+run/main_scene="res://Menus/MainMenu/main_menu.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+
+[debug]
+
+gdscript/warnings/inferred_declaration=2
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "purple",
+"res://Fish/": "blue",
+"res://Menus/": "red",
+"res://Quinnsoft94/": "green",
+"res://Resources/": "pink"
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://dge7ymn0yd7ry"]
+
+[ext_resource type="StyleBox" uid="uid://bhwii0745mi6s" path="res://Assets/darkpanel.tres" id="1_bo5ug"]
+[ext_resource type="Script" path="res://Menus/Swipe/fish_card.gd" id="1_icnll"]
+[ext_resource type="Texture2D" uid="uid://06lxb843ndgp" path="res://Assets/ocean_bg.png" id="1_up35p"]
+[ext_resource type="Texture2D" uid="uid://cgpihcsrl4ejg" path="res://Fish/LeafySeaDragon/leafy_seadragon.png" id="2_coegx"]
+[ext_resource type="Texture2D" uid="uid://cxw2anmc6julg" path="res://Assets/no.png" id="3_8ybbb"]
+[ext_resource type="Texture2D" uid="uid://4id2ggp6enln" path="res://Assets/yes.png" id="4_uby25"]
+[ext_resource type="Texture2D" uid="uid://cd4gpc06w68od" path="res://Assets/no_invert.png" id="5_5hf51"]
+[ext_resource type="Texture2D" uid="uid://diwd4au18e2r1" path="res://Assets/yes_invert.png" id="7_v6le4"]
+
+[node name="FishCard" type="PanelContainer" node_paths=PackedStringArray("pfp_display", "fish_label")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 539.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("1_bo5ug")
+script = ExtResource("1_icnll")
+pfp_display = NodePath("Control/VBoxContainer/TextureRect/TextureRect")
+fish_label = NodePath("Control/VBoxContainer/Label")
+
+[node name="Control" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "FISH NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+texture = ExtResource("1_up35p")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_coegx")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="NO" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("3_8ybbb")
+texture_pressed = ExtResource("3_8ybbb")
+texture_hover = ExtResource("5_5hf51")
+stretch_mode = 5
+
+[node name="YES" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("4_uby25")
+texture_pressed = ExtResource("4_uby25")
+texture_hover = ExtResource("7_v6le4")
+stretch_mode = 5
+
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/NO" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/YES" to="." method="_on_yes_pressed"]

@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cfsgvdm1la7nr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wv3wi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xf03t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0y4fm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gvl1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_att5v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puiss"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwvng"]
+bg_color = Color(0, 0.380392, 0.611765, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_wv3wi")
+Button/styles/focus = SubResource("StyleBoxEmpty_xf03t")
+Button/styles/hover = SubResource("StyleBoxEmpty_0y4fm")
+Button/styles/normal = SubResource("StyleBoxEmpty_1gvl1")
+Button/styles/pressed = SubResource("StyleBoxEmpty_att5v")
+HBoxContainer/constants/separation = 3
+InnerMargin/base_type = &"MarginContainer"
+InnerMargin/constants/margin_bottom = 2
+InnerMargin/constants/margin_left = 2
+InnerMargin/constants/margin_right = 2
+InnerMargin/constants/margin_top = 2
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 3
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_puiss")
+VBoxContainer/constants/separation = 2
+WindowBarPanel/base_type = &"PanelContainer"
+WindowBarPanel/styles/panel = SubResource("StyleBoxFlat_mwvng")

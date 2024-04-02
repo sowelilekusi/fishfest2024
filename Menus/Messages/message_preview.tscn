@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://co43b1v8r5md5"]
+
+[ext_resource type="Script" path="res://Menus/Messages/message_preview.gd" id="1_7tq4e"]
+[ext_resource type="StyleBox" uid="uid://bhwii0745mi6s" path="res://Assets/darkpanel.tres" id="2_ig7jg"]
+[ext_resource type="Texture2D" uid="uid://06lxb843ndgp" path="res://Assets/ocean_bg.png" id="3_2mx8o"]
+[ext_resource type="Texture2D" uid="uid://ct3mqh62m2c36" path="res://Fish/Goldfish/goldfish.png" id="4_7xgia"]
+
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("pfp", "fish_name_label", "message_label")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_7tq4e")
+pfp = NodePath("Button/PanelContainer/MarginContainer/Control/TextureRect/TextureRect")
+fish_name_label = NodePath("Button/PanelContainer/MarginContainer/Control/MarginContainer/VBoxContainer/Name")
+message_label = NodePath("Button/PanelContainer/MarginContainer/Control/MarginContainer/VBoxContainer/Message")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("2_ig7jg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Button/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Control" type="HBoxContainer" parent="Button/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Button/PanelContainer/MarginContainer/Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_2mx8o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Button/PanelContainer/MarginContainer/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_7xgia")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Button/PanelContainer/MarginContainer/Control"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button/PanelContainer/MarginContainer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Button/PanelContainer/MarginContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "GOLDY"
+
+[node name="Message" type="Label" parent="Button/PanelContainer/MarginContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "message preview"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

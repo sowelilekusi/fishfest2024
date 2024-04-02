@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FishProfile" load_steps=3 format=3 uid="uid://co03mjgi5q1xh"]
+
+[ext_resource type="Texture2D" uid="uid://ct3mqh62m2c36" path="res://Fish/Goldfish/goldfish.png" id="1_i4yvj"]
+[ext_resource type="Script" path="res://Resources/fish_profile.gd" id="1_wk3hw"]
+
+[resource]
+script = ExtResource("1_wk3hw")
+fish_name = "Goldy"
+picture = ExtResource("1_i4yvj")

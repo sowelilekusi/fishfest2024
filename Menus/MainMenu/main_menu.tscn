@@ -1,0 +1,176 @@
+[gd_scene load_steps=16 format=3 uid="uid://ig66qdnq62p0"]
+
+[ext_resource type="Texture2D" uid="uid://c80yh0lidbpn0" path="res://Assets/OffButton/off_button.png" id="1_s7hhf"]
+[ext_resource type="Script" path="res://Menus/MainMenu/main_menu.gd" id="1_xav2y"]
+[ext_resource type="Texture2D" uid="uid://c26qgf2pbob32" path="res://Assets/OffButton/off_button_pushed.png" id="2_5troo"]
+[ext_resource type="Texture2D" uid="uid://8m458cpunhg6" path="res://Assets/logo.png" id="2_ks1kr"]
+[ext_resource type="Texture2D" uid="uid://d324adwo1gdj2" path="res://Assets/OffButton/off_button_hover.png" id="3_78wfw"]
+[ext_resource type="Texture2D" uid="uid://tui0tcoga17s" path="res://Assets/line.png" id="3_fyi56"]
+[ext_resource type="Texture2D" uid="uid://06lxb843ndgp" path="res://Assets/ocean_bg.png" id="4_fob30"]
+[ext_resource type="Texture2D" uid="uid://co5knl5f3lui3" path="res://Assets/catfish.png" id="5_lh7pm"]
+[ext_resource type="Texture2D" uid="uid://clfbenn5fu1la" path="res://Assets/EnterButton/enter.png" id="6_0i1jn"]
+[ext_resource type="Texture2D" uid="uid://bpq6b6sctivo5" path="res://Assets/EnterButton/enter_pushed.png" id="7_ggmnc"]
+[ext_resource type="Texture2D" uid="uid://tlq6dn0rco4g" path="res://Assets/EnterButton/enter_hover.png" id="8_6a0ri"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxxt7"]
+bg_color = Color(0.129412, 0.196078, 0.65098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_143si"]
+bg_color = Color(0.352941, 0.494118, 0.862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5sn22"]
+bg_color = Color(0.180392, 0.337255, 0.721569, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha25n"]
+
+[node name="MainMenu" type="PanelContainer" node_paths=PackedStringArray("profile_name", "enter_button")]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxxt7")
+script = ExtResource("1_xav2y")
+profile_name = NodePath("VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/LineEdit")
+enter_button = NodePath("VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.66
+theme_override_constants/margin_top = 110
+
+[node name="Content" type="PanelContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_143si")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/Content"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer2/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_ks1kr")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "To begin, type your username"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/Content/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_fyi56")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5sn22")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("4_fob30")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_lh7pm")
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+expand_to_text_length = true
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("6_0i1jn")
+texture_pressed = ExtResource("7_ggmnc")
+texture_hover = ExtResource("8_6a0ri")
+stretch_mode = 5
+
+[node name="Footer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ha25n")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Footer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_top = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Footer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 430
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Footer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Footer/MarginContainer/HBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("1_s7hhf")
+texture_pressed = ExtResource("2_5troo")
+texture_hover = ExtResource("3_78wfw")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/Footer/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "  Turn off computer"
+
+[node name="Label" type="Label" parent="VBoxContainer/Footer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "After you log on, you cannot add or change accounts.
+Just go play something else because I didn't put effort into this"
+
+[connection signal="text_changed" from="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/Content/HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_enter_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Footer/MarginContainer/HBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

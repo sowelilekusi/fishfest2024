@@ -1,0 +1,124 @@
+[gd_scene load_steps=19 format=3 uid="uid://wa62w2wb4pmr"]
+
+[ext_resource type="Script" path="res://Menus/PlentifulFish/application.gd" id="1_yl22y"]
+[ext_resource type="PackedScene" uid="uid://dge7ymn0yd7ry" path="res://Menus/Swipe/fish_card.tscn" id="2_uajjj"]
+[ext_resource type="PackedScene" uid="uid://db0bwtrlmfxbj" path="res://Menus/Messages/messages_menu.tscn" id="3_42fn6"]
+[ext_resource type="Resource" uid="uid://b7cyooj5na7ur" path="res://Fish/LeafySeaDragon/leafy_seadragon.tres" id="4_tkrdy"]
+[ext_resource type="Resource" uid="uid://co03mjgi5q1xh" path="res://Fish/Goldfish/goldfish.tres" id="5_g7gvi"]
+[ext_resource type="Resource" uid="uid://dun2uls53mmbq" path="res://Fish/Fishball/fishball.tres" id="6_6w8p5"]
+[ext_resource type="Texture2D" uid="uid://06lxb843ndgp" path="res://Assets/ocean_bg.png" id="7_o2jv7"]
+[ext_resource type="Texture2D" uid="uid://co5knl5f3lui3" path="res://Assets/catfish.png" id="8_7dnbn"]
+[ext_resource type="StyleBox" uid="uid://bhwii0745mi6s" path="res://Assets/darkpanel.tres" id="9_d6aw3"]
+[ext_resource type="Texture2D" uid="uid://csowwaiokaooa" path="res://Assets/fish_icon.png" id="10_jb5xi"]
+[ext_resource type="Texture2D" uid="uid://cs3lmgnyy4xm5" path="res://Assets/fish_icon_invert.png" id="11_b8gwu"]
+[ext_resource type="Texture2D" uid="uid://cm3wtlnnd1msu" path="res://Assets/message_icon.png" id="12_yhvua"]
+[ext_resource type="Texture2D" uid="uid://40ri77fo6brh" path="res://Assets/message_icon_invert.png" id="13_yi281"]
+[ext_resource type="Texture2D" uid="uid://con12semgp0f5" path="res://Assets/profile_icon.png" id="14_s36ga"]
+[ext_resource type="Texture2D" uid="uid://c8sfk17x7ahgw" path="res://Assets/profile_icon_invert.png" id="15_t23q2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th770"]
+bg_color = Color(0.768627, 0.533333, 0.458824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7vhj"]
+bg_color = Color(0.611765, 0.392157, 0.321569, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hehe3"]
+
+[node name="PoF" type="PanelContainer" node_paths=PackedStringArray("player_name_text", "contents_page")]
+custom_minimum_size = Vector2(600, 680)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 400.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_th770")
+script = ExtResource("1_yl22y")
+player_name_text = NodePath("VBoxContainer/Header/HBoxContainer/PlayerName")
+fish_card_scene = ExtResource("2_uajjj")
+messages_scene = ExtResource("3_42fn6")
+fish_profiles = Array[Resource("res://Resources/fish_profile.gd")]([ExtResource("4_tkrdy"), ExtResource("5_g7gvi"), ExtResource("6_6w8p5")])
+contents_page = NodePath("VBoxContainer/Content")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Header" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a7vhj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Header/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("7_o2jv7")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Header/HBoxContainer/TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_7dnbn")
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "cool name"
+vertical_alignment = 1
+
+[node name="Content" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hehe3")
+
+[node name="Footer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("9_d6aw3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Footer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Fish" type="TextureButton" parent="VBoxContainer/Footer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("10_jb5xi")
+texture_pressed = ExtResource("10_jb5xi")
+texture_hover = ExtResource("11_b8gwu")
+stretch_mode = 5
+
+[node name="Messages" type="TextureButton" parent="VBoxContainer/Footer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("12_yhvua")
+texture_pressed = ExtResource("12_yhvua")
+texture_hover = ExtResource("13_yi281")
+stretch_mode = 5
+
+[node name="Profile" type="TextureButton" parent="VBoxContainer/Footer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("14_s36ga")
+texture_pressed = ExtResource("14_s36ga")
+texture_hover = ExtResource("15_t23q2")
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="pressed" from="VBoxContainer/Footer/HBoxContainer/Fish" to="." method="_on_fish_pressed"]
+[connection signal="pressed" from="VBoxContainer/Footer/HBoxContainer/Messages" to="." method="_on_messages_pressed"]
+[connection signal="pressed" from="VBoxContainer/Footer/HBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="timeout" from="Timer" to="." method="recycle_profiles"]

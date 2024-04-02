@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1radkfqcc3hp"]
+
+[ext_resource type="Theme" uid="uid://cfsgvdm1la7nr" path="res://Quinnsoft94/quinnsoft94.tres" id="1_l6flf"]
+[ext_resource type="Script" path="res://Quinnsoft94/program_window.gd" id="2_8a3lw"]
+[ext_resource type="Texture2D" uid="uid://cl8axsoyifirp" path="res://Quinnsoft94/ninepatchborder.png" id="3_6xpkt"]
+[ext_resource type="Texture2D" uid="uid://cpefkjqivf224" path="res://Quinnsoft94/minimize.png" id="4_4awaw"]
+[ext_resource type="Texture2D" uid="uid://ly4hkn1lcwmu" path="res://Quinnsoft94/minimized_pressed.png" id="5_cl3ca"]
+[ext_resource type="Texture2D" uid="uid://csbjb0e2ks7fw" path="res://Quinnsoft94/close.png" id="6_vu4h5"]
+[ext_resource type="Texture2D" uid="uid://bua3dj3bodr67" path="res://Quinnsoft94/close_pressed.png" id="7_0pdks"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06e6f"]
+bg_color = Color(0.141176, 0.568627, 0.235294, 1)
+
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("title_label", "game_holder", "context_buttons", "sub_menu_parent")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -36.0
+offset_right = 69.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_l6flf")
+script = ExtResource("2_8a3lw")
+title_label = NodePath("MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar/MarginContainer/WindowName")
+game_holder = NodePath("MarginContainer/Binwoahs/VBoxContainer/MarginContainer/ProgramHolder")
+context_buttons = NodePath("MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer2/ContextButtons")
+sub_menu_parent = NodePath("MarginContainer/Binwoahs/VBoxContainer/MarginContainer")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_6xpkt")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Binwoahs" type="AspectRatioContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Binwoahs"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="WindowDeco" type="VBoxContainer" parent="MarginContainer/Binwoahs/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco"]
+layout_mode = 2
+theme_type_variation = &"InnerMargin"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"WindowBarPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"InnerMargin"
+
+[node name="WindowBar" type="HBoxContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="WindowName" type="Label" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Window Title"
+vertical_alignment = 1
+
+[node name="WindowButtons" type="HBoxContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar"]
+layout_mode = 2
+
+[node name="Minimize" type="TextureButton" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar/WindowButtons"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("4_4awaw")
+texture_pressed = ExtResource("5_cl3ca")
+
+[node name="Close" type="TextureButton" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar/WindowButtons"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("6_vu4h5")
+texture_pressed = ExtResource("7_0pdks")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ContextButtons" type="HBoxContainer" parent="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Binwoahs/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"InnerMargin"
+
+[node name="ProgramHolder" type="PanelContainer" parent="MarginContainer/Binwoahs/VBoxContainer/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_06e6f")
+
+[connection signal="gui_input" from="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar/MarginContainer" to="." method="_on_margin_container_gui_input"]
+[connection signal="button_up" from="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar/WindowButtons/Minimize" to="." method="minimize"]
+[connection signal="button_up" from="MarginContainer/Binwoahs/VBoxContainer/WindowDeco/MarginContainer/PanelContainer/MarginContainer/WindowBar/WindowButtons/Close" to="." method="close"]
